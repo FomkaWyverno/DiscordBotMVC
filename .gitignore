@@ -1,2 +1,3 @@
+/logs
 /target
-config.cfg
+src/main/resources/config.properties

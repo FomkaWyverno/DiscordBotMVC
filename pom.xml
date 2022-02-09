@@ -27,7 +27,7 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.35</version>
         </dependency>
-        
+
         <dependency> <!-- Test -->
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -42,8 +42,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>16</source>
+                    <target>16</target>
                 </configuration>
             </plugin>
         </plugins>
