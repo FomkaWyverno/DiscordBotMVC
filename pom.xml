@@ -6,7 +6,7 @@
 
     <groupId>com.wyverno</groupId>
     <artifactId>DiscordBotMVC</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
 
     <dependencies>
         <dependency> <!-- Discord API Lib -->
@@ -15,7 +15,7 @@
             <version>5.0.0-alpha.5</version>
         </dependency>
 
-        <dependency>
+        <dependency> <!-- Logger -->
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.17.1</version>
@@ -31,43 +31,11 @@
             <version>2.17.1</version>
         </dependency>
 
-        <!--<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.0-alpha6</version>
+        <dependency> <!-- JSON Mapper -->
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.1</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j18-impl</artifactId>
-            <version>2.17.1</version>
-        </dependency>-->
-
-
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-        <!--<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-        </dependency>-->
-
-<!--        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.36</version>
-        </dependency>-->
-
-        <!--<dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>1.2.10</version>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.10</version>
-        </dependency>-->
 
         <dependency> <!-- Test -->
             <groupId>junit</groupId>
