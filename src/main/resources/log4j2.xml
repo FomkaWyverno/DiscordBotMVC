@@ -32,7 +32,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="com.wyverno" additivity="false">
+        <Logger name="com.wyverno" additivity="false" level="TRACE">
             <AppenderRef ref="console"/>
             <AppenderRef ref="file_log"/>
         </Logger>
@@ -46,6 +46,5 @@
             <AppenderRef ref="console"/>
             <AppenderRef ref="file_log"/>
         </Root>
-
     </Loggers>
 </Configuration>
