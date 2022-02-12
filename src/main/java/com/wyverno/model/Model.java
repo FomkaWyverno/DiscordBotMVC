@@ -3,7 +3,7 @@ package com.wyverno.model;
 import com.wyverno.view.View;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.internal.entities.ActivityImpl;
+import net.dv8tion.jda.api.entities.Activity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,14 +18,12 @@ public class Model {
     public static final Logger logger = LoggerFactory.getLogger(Model.class);
 
     public static JDA getJDA() { // Pattern Singleton
-        if (JDA != null) {
-            return JDA;
-        } else {
+        if (JDA == null) {
             try {
                 logger.trace("Loading config.properties");
                 String fileConfig = View.class.getClassLoader().getResource("config.properties").getFile();
                 Properties properties = new Properties();
-                try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileConfig)))) {
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileConfig)))) {
                     properties.load(reader);
                     logger.trace("Loaded config.properties");
                 }
@@ -37,10 +35,10 @@ public class Model {
                 JDA = settingJDA(builder).build();
                 logger.info("Started bot");
             } catch (Throwable throwable) {
-                logger.error("FATAL ERROR STACKTRACE:",throwable);
+                logger.error("FATAL ERROR STACKTRACE:", throwable);
             }
-            return JDA;
         }
+        return JDA;
     }
 
     public static void stopJDA() {
@@ -51,7 +49,9 @@ public class Model {
 
     private static JDABuilder settingJDA(JDABuilder builder) {
         logger.info("Setting up the Builder bot");
-        logger.info("is RichPre");
+
+        builder.setActivity(Activity.streaming("Java streaming...","https://www.twitch.tv/fomka_wyverno"));
+
         logger.info("Complected settings for Builder bot");
         return builder;
     }
