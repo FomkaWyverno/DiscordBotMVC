@@ -13,7 +13,6 @@ public class View {
 
     public static void main(String[] args) throws InterruptedException {
         JDA jda = Model.getJDA();
-        Thread.sleep(TimeUnit.SECONDS.toMillis(3));
         Model.stopJDA();
     }
 }

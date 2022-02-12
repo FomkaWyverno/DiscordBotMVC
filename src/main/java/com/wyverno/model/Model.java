@@ -51,7 +51,7 @@ public class Model {
 
     private static JDABuilder settingJDA(JDABuilder builder) {
         logger.info("Setting up the Builder bot");
-
+        logger.info("is RichPre");
         logger.info("Complected settings for Builder bot");
         return builder;
     }
