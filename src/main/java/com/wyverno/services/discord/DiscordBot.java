@@ -1,6 +1,5 @@
-package com.wyverno.view.viewDiscordBot;
+package com.wyverno.services.discord;
 
-import com.wyverno.model.Model;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -14,9 +13,9 @@ import java.util.Properties;
 
 public class DiscordBot {
     private static JDA JDA = null;
-    public static final Logger logger = LoggerFactory.getLogger(Model.class);
+    public static final Logger logger = LoggerFactory.getLogger(DiscordBot.class);
 
-    public static JDA getJDA() { // Pattern Singleton
+    public static JDA getBot() { // Pattern Singleton
         if (JDA == null) {
             try {
                 logger.trace("Loading config.properties");
@@ -40,18 +39,19 @@ public class DiscordBot {
         return JDA;
     }
 
-    public static void stopJDA() {
-        logger.info("Stopping bot...");
-        getJDA().shutdown();
-        logger.info("Stopped bot");
-    }
-
     private static JDABuilder settingJDA(JDABuilder builder) {
         logger.info("Setting up the Builder bot");
 
         builder.setActivity(Activity.streaming("Java streaming...","https://www.twitch.tv/fomka_wyverno"));
+        builder.addEventListeners(new MessageListener());
 
         logger.info("Complected settings for Builder bot");
         return builder;
+    }
+
+    public static void stopBot() {
+        logger.info("Stopping bot...");
+        getBot().shutdown();
+        logger.info("Stopped bot");
     }
 }
