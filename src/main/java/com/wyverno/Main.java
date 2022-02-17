@@ -18,7 +18,8 @@ public class Main {
             logger.info("Created view.");
             Model model = new Model(view);
             logger.info("Created model.");
-            Controller controller = new ControllerDiscord(model);
+            ControllerDiscord controller = new ControllerDiscord(model);
+            controller.setListenerTextChats(); // Активируем прослушку чатов
             logger.info("Created controller.");
 
         } catch (Throwable e) {
