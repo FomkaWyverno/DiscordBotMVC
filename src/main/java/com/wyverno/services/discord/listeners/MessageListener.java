@@ -6,11 +6,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class MessageListener extends ListenerAdapter {
 
-
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
-        super.onMessageReceived(event);
+
     }
-
-
 }
