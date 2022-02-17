@@ -17,6 +17,14 @@ public class DiscordBot {
 
     public static JDA getBot() { // Pattern Singleton
         if (JDA == null) {
+            initDiscordBot();
+        }
+        return JDA;
+    }
+
+    public static void initDiscordBot() { // Включаем бота
+        if (JDA == null) {
+            logger.info("Start Initialization Discord Bot");
             try {
                 logger.trace("Loading config.properties");
                 String fileConfig = DiscordBot.class.getClassLoader().getResource("config.properties").getFile();
@@ -30,22 +38,20 @@ public class DiscordBot {
                 logger.trace("Read token from config");
 
                 logger.info("Starting bot");
-                JDA = settingJDA(builder).build();
+                JDA = setStatus(builder).build();
                 logger.info("Started bot");
             } catch (Throwable throwable) {
                 logger.error("FATAL ERROR STACKTRACE:", throwable);
             }
         }
-        return JDA;
     }
 
-    private static JDABuilder settingJDA(JDABuilder builder) {
-        logger.info("Setting up the Builder bot");
+    private static JDABuilder setStatus(JDABuilder builder) {
+        logger.trace("Start setting the status");
 
         builder.setActivity(Activity.streaming("Java streaming...","https://www.twitch.tv/fomka_wyverno"));
-        builder.addEventListeners(new MessageListener());
 
-        logger.info("Complected settings for Builder bot");
+        logger.trace("Set status");
         return builder;
     }
 
