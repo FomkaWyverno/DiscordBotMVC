@@ -1,6 +1,5 @@
 package com.wyverno;
 
-import com.wyverno.controller.Controller;
 import com.wyverno.controller.controllerDiscord.ControllerDiscord;
 import com.wyverno.model.Model;
 import com.wyverno.view.View;
